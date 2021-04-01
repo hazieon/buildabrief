@@ -1,5 +1,5 @@
 /*colours extracted from the Columba site*/
-:root{
+:root {
   --columba: rgb(251, 87, 79);
   --red: #dc3545;
   --orange: #fd7e14;
@@ -12,7 +12,7 @@
   --purple: #6f42c1;
   --pink: #e83e8c;
   --white: #fff;
-  
+
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #007bff;
@@ -22,10 +22,8 @@
   --warning: #ffc107;
   --danger: #dc3545;
   --light: #f8f9fa;
-  --dark: #343a40; 
+  --dark: #343a40;
 }
-
-
 
 body {
   margin: 0;
@@ -35,6 +33,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

@@ -4,9 +4,11 @@
   font-size: 1.4rem;
   /* padding: 0.1rem; */
   align-items: center;
+  place-items: center;
   margin: auto;
   width: 80vw;
   min-height: 80vh;
+  overflow: visible;
 }
 
 button {
@@ -29,17 +31,43 @@ button:hover {
 .backButton {
   position: absolute;
   /* left: 15%; */
-  left: 6rem;
-  top: 38rem;
+  left: 4rem;
+  top: 17rem;
 }
 .nextButton {
   position: absolute;
-  right: 6rem;
-  top: 38rem;
+  right: 4rem;
+  top: 17rem;
 }
 
 /*relative position later on*/
 .backButtonContainer {
+  position: relative;
 }
 .nextButtonContainer {
+  position: relative;
+}
+
+.progressBar {
+  margin: auto;
+  position: relative;
+  border-radius: 3px;
+  background-color: rgba(255, 174, 181, 0.678);
+  cursor: cell;
+  padding: 2px;
+  max-width: 76vw;
+}
+
+.progress {
+  user-select: none;
+  border-radius: 2px;
+  cursor: pointer;
+  border-bottom: 10px solid var(--columba);
+  max-width: 80vw;
+  width: 25%;
+}
+
+.selectionText {
+  color: var(--columba);
+  text-decoration: underline;
 }
