@@ -83,12 +83,12 @@ function reducer(state, action) {
     case "setIndustry":
       return {
         ...state,
-        type: action.industry,
+        industry: action.industry,
       };
     case "setBudget":
       return {
         ...state,
-        type: action.budget,
+        budget: action.budget,
       };
 
     default:
@@ -161,30 +161,38 @@ function Panel() {
           <section className={styles.servicesSection}>
             <Services options={serviceOptions} serviceSetter={serviceSetter} />
           </section>
-          <h4>So you're looking for:</h4>
-          <h3 className={styles.selectionText}>
-            {state.service ? state.service : ""}
-          </h3>
+          <div className={styles.selectionBox}>
+            <h4 className={styles.selectionLabel}>So you're looking for:</h4>
+            <h3 className={styles.selectionText}>
+              {state.service ? state.service : ""}
+            </h3>
+          </div>
         </>
       )}
 
       {currentPanel === 1 && (
         <section className={styles.servicesSection}>
           <Types options={types} typeSetter={serviceTypeSetter} />
-          <h4>Right, you need optimisation with/of:</h4>
-          <h3 className={styles.selectionText}>
-            {state.type ? state.type : ""}
-          </h3>
+          <div className={styles.selectionBox}>
+            <h4 className={styles.selectionLabel}>
+              Right, you need optimisation with/of:
+            </h4>
+            <h3 className={styles.selectionText}>
+              {state.type ? state.type : ""}
+            </h3>
+          </div>
         </section>
       )}
 
       {currentPanel === 2 && (
         <section className={styles.industrySection}>
           <Industry options={industryOptions} industrySetter={industrySetter} />
-          <h4>What industry does your company work in?</h4>
-          <h3 className={styles.selectionText}>
-            {state.industry ? state.industry : ""}
-          </h3>
+          <div className={styles.selectionBox}>
+            <h4 className={styles.selectionLabel}>You specialise in:</h4>
+            <h3 className={styles.selectionText}>
+              {state.industry ? state.industry : ""}
+            </h3>
+          </div>
         </section>
       )}
 
@@ -207,7 +215,7 @@ function Panel() {
             incComponent();
           }}
         >
-          Next
+          {currentPanel < 3 ? "Next" : "Save"}
         </button>
       </div>
     </div>

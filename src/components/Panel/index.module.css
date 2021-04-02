@@ -31,22 +31,22 @@ button:hover {
 .backButton {
   position: absolute;
   /* left: 15%; */
-  left: 4rem;
-  top: 17rem;
+  left: 5rem;
+  top: 39rem;
 }
 .nextButton {
   position: absolute;
-  right: 4rem;
-  top: 17rem;
+  right: 5rem;
+  top: 39rem;
 }
 
 /*relative position later on*/
-.backButtonContainer {
+/* .backButtonContainer {
   position: relative;
 }
 .nextButtonContainer {
   position: relative;
-}
+} */
 
 .progressPercentage {
   position: relative;
@@ -76,7 +76,17 @@ button:hover {
   max-width: 76vw;
 }
 
+.selectionLabel {
+  font-size: calc(8px + 2vmin);
+  margin: 0;
+}
+
 .selectionText {
+  margin: 0.5rem;
   color: var(--columba);
   text-decoration: underline;
+}
+
+.selectionBox {
+  margin-top: 4.5rem;
 }

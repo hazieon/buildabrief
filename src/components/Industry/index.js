@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 function Industry({ options, industrySetter }) {
   return (
     <>
-      <h3 className={styles.title}>What type of service is required?</h3>
+      <h3 className={styles.title}>What industry does your company work in?</h3>
 
       <select
         onChange={(event) => {
@@ -18,9 +18,11 @@ function Industry({ options, industrySetter }) {
         </option>
         {options.map((item) => {
           return (
-            <option key={item} value={item}>
-              {item}
-            </option>
+            <>
+              <option key={item} value={item}>
+                {item}
+              </option>
+            </>
           );
         })}
       </select>
