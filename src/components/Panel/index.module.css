@@ -48,6 +48,16 @@ button:hover {
   position: relative;
 }
 
+.progressPercentage {
+  position: relative;
+  margin: 0px;
+  font-size: calc(2px + 2vmin);
+  opacity: 50%;
+  cursor: grab;
+}
+.progressPercentage:hover {
+  opacity: 100%;
+}
 .progressBar {
   margin: auto;
   position: relative;
@@ -55,7 +65,7 @@ button:hover {
   background-color: rgba(255, 174, 181, 0.678);
   cursor: grab;
   padding: 2px;
-  max-width: 76vw;
+  max-width: 72vw;
 }
 
 .progress {
@@ -63,7 +73,7 @@ button:hover {
   border-radius: 2px;
   cursor: pointer;
   border-bottom: 10px solid var(--columba);
-  max-width: 80vw;
+  max-width: 76vw;
 }
 
 .selectionText {

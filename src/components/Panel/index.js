@@ -1,6 +1,11 @@
 import React, { useReducer, useState } from "react";
 import styles from "./index.module.css";
 import Services from "../Services";
+import Types from "../Types";
+import Industry from "../Industry";
+
+// best practice, clean code,
+// CSS - button positions
 
 //hard coded list of available services within Columba
 const serviceOptions = [
@@ -10,8 +15,50 @@ const serviceOptions = [
   "Paid Social",
   "Digital Marketing",
 ];
+
+const types = [
+  "Brochure",
+  "Business (non-eCommerce)",
+  "eCommerce",
+  "Media / Magazine / Blog",
+  "Portfolio",
+  "Driving traffic to website",
+  "Increasing brand awareness",
+  "Increasing likes on social media",
+  "Other (Please Specify)",
+];
+
+const industryOptions = [
+  "Automotive",
+  "Aviation & Aerospace",
+  "Banking & Finance",
+  "Consumer Electronics",
+  "e-commerce",
+  "Education",
+  "Energy & Oil",
+  "Food & Beverage",
+  "Government & Administration",
+  "Hospitality & Events",
+  "Hospitals & Healthcare",
+  "Legal Services",
+  "Logistics & Supply Chain",
+  "Management & Consulting",
+  "Marketing & Advertising",
+  "Media",
+  "Music",
+  "Non-Profit",
+  "Pharmaceuticals & Biotech",
+  "Property",
+  "Retail",
+  "Sports",
+  "Technology",
+  "Transportation",
+  "Travel & Leisure",
+  "Other (Please Specify) ",
+];
+
 //array which holds the page numbers available to iterate through:
-const componentPages = [0, 1, 2];
+const componentPages = [0, 1, 2, 3];
 
 const initialState = {
   service: "",
@@ -55,6 +102,7 @@ function Panel() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [progress, setProgress] = useState(25);
 
+  console.log(state);
   function incComponent() {
     //array with order of pages, move to NEXT index on button click
     if (currentPanel < componentPages.length) {
@@ -64,6 +112,7 @@ function Panel() {
     }
   }
   function decComponent() {
+    // move to PREVIOUS pages index on button click
     if (currentPanel > 0) {
       setCurrentPanel(currentPanel - 1);
     } else {
@@ -88,18 +137,19 @@ function Panel() {
   function serviceSetter(e) {
     dispatch({ type: "setService", service: e.target.value });
   }
-  //   function serviceTypeSetter(e) {
-  //     dispatch({ type: "setService", serviceType: e.target.value });
-  //   }
-  //   function IndustrySetter(e) {
-  //     dispatch({ type: "setIndustry", industry: e.target.value });
-  //   }
+  function serviceTypeSetter(e) {
+    dispatch({ type: "setType", serviceType: e.target.value });
+  }
+  function industrySetter(e) {
+    dispatch({ type: "setIndustry", industry: e.target.value });
+  }
   //   function budgetSetter(e) {
   //     dispatch({ type: "setBudget", budget: e.target.value });
   //   }
 
   return (
     <div className={styles.container}>
+      <p className={styles.progressPercentage}>{progress + "%"}</p>
       <div className={styles.progressBar}>
         <div
           className={styles.progress}
@@ -107,19 +157,43 @@ function Panel() {
         ></div>
       </div>
       {currentPanel === 0 && (
+        <>
+          <section className={styles.servicesSection}>
+            <Services options={serviceOptions} serviceSetter={serviceSetter} />
+          </section>
+          <h4>So you're looking for:</h4>
+          <h3 className={styles.selectionText}>
+            {state.service ? state.service : ""}
+          </h3>
+        </>
+      )}
+
+      {currentPanel === 1 && (
         <section className={styles.servicesSection}>
-          <Services options={serviceOptions} serviceSetter={serviceSetter} />
+          <Types options={types} typeSetter={serviceTypeSetter} />
+          <h4>Right, you need optimisation with/of:</h4>
+          <h3 className={styles.selectionText}>
+            {state.type ? state.type : ""}
+          </h3>
         </section>
       )}
-      <h4>So you're looking for:</h4>
-      <h3 className={styles.selectionText}>
-        {state.service ? state.service : ""}
-      </h3>
+
+      {currentPanel === 2 && (
+        <section className={styles.industrySection}>
+          <Industry options={industryOptions} industrySetter={industrySetter} />
+          <h4>What industry does your company work in?</h4>
+          <h3 className={styles.selectionText}>
+            {state.industry ? state.industry : ""}
+          </h3>
+        </section>
+      )}
+
       <div className={styles.backButtonContainer}>
         <button
           className={styles.backButton}
           onClick={() => {
             retractProgressBar();
+            decComponent();
           }}
         >
           Back
@@ -130,6 +204,7 @@ function Panel() {
           className={styles.nextButton}
           onClick={() => {
             advanceProgressBar();
+            incComponent();
           }}
         >
           Next
