@@ -1,3 +1,13 @@
+nav {
+  font-family: sans-serif;
+  font-weight: bolder;
+  background-color: #23243c;
+  color: white;
+  padding: 12px;
+  margin: auto;
+  cursor: pointer;
+}
+
 body {
   text-align: center;
   font-size: calc(8px + 2vmin);

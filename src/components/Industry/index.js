@@ -13,16 +13,14 @@ function Industry({ options, industrySetter }) {
           console.log(event.target.value);
         }}
       >
-        <option value="" selected disabled>
+        <option value="Select one that applies:" selected disabled>
           Select one that applies:
         </option>
         {options.map((item) => {
           return (
-            <>
-              <option key={item} value={item}>
-                {item}
-              </option>
-            </>
+            <option key={item} value={item}>
+              {item}
+            </option>
           );
         })}
       </select>

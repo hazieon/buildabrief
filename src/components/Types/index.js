@@ -8,7 +8,7 @@ function Types({ options, typeSetter }) {
 
       {options.map((item, index) => {
         return (
-          <div className={styles.box}>
+          <div className={styles.box} key={item}>
             <input
               type="radio"
               name="type"

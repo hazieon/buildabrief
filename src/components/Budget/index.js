@@ -12,20 +12,25 @@ function Budget({ budgetSetter }) {
   return (
     <>
       <h3 className={styles.title}>What is your budget for this project?</h3>
-      <div className={styles.rangeContainer}>
-        {/* <Typography id="range-slider" gutterBottom>
+
+      {/* <Typography id="range-slider" gutterBottom>
   Temperature range
 </Typography> */}
-        <Slider
-          min={10000}
-          max={100000}
-          step={10000}
-          style={{ width: "50vw", color: "var(--columba)" }}
-          value={value}
-          onChange={handleChange}
-          valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
-        />
+      <Slider
+        initalvalue={10000}
+        min={10000}
+        max={100000}
+        step={10000}
+        style={{ width: "50vw", color: "var(--columba)" }}
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+      />
+
+      <div className={styles.check}>
+        <p>Not sure? </p>
+        <input type="checkbox" />
       </div>
     </>
   );

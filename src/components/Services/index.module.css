@@ -1,3 +1,5 @@
-select {
-  cursor: pointer;
+.box {
+  text-align: left;
+  margin-left: 30%;
+  margin-bottom: 0.6rem;
 }

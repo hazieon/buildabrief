@@ -7,6 +7,9 @@ import Budget from "../Budget";
 
 // best practice, clean code,
 // CSS - button positions
+// slider, text centred and spaced nicely
+// customise radio buttons, drop down
+// consider UX/UX improvements
 
 //hard coded list of available services within Columba
 const serviceOptions = [
@@ -64,7 +67,7 @@ const componentPages = [0, 1, 2, 3, 4];
 const initialState = {
   service: "",
   type: "",
-  industry: "",
+  industry: "[Please select from above list.]",
   budget: 0,
 };
 
@@ -203,7 +206,7 @@ function Panel() {
           <div className={styles.selectionBox}>
             <h4 className={styles.selectionLabel}>Your budget estimate:</h4>
             <h3 className={styles.selectionText}>
-              {state.budget ? state.budget : ""}
+              {state.budget ? "£" + state.budget : ""}
             </h3>
           </div>
         </section>
@@ -211,19 +214,29 @@ function Panel() {
 
       {currentPanel === 4 && (
         <section className={styles.budgetSection}>
-          <h3>Brief complete!</h3>
+          <h3>'About You' complete!</h3>
           <h5>Confirm your choices & save.</h5>
           <div className={styles.BriefBox}>
-            <label for="selectionText">Service:</label>
+            <label htmlFor="selectionText">Service: ✎</label>
             <p className={styles.selectionText}>{state.service}</p>
-            <label for="selectionText">Service Type:</label>
+            <label htmlFor="selectionText">Service Type: ✎</label>
             <p className={styles.selectionText}>{state.type}</p>
-            <label for="selectionText">Industry:</label>
+            <label htmlFor="selectionText">Industry: ✎</label>
             <p className={styles.selectionText}>{state.industry}</p>
-            <label for="selectionText">Budget:</label>
-            <p className={styles.selectionText}>{state.budget}</p>
+            <label htmlFor="selectionText">Budget: ✎</label>
+            <p className={styles.selectionText}>{state.budget} </p>
           </div>
-          <button className={styles.downloadButton}>Download PDF ⇩</button>
+          <div className={styles.buttonBox}>
+            <button
+              className={styles.downloadButton}
+              onClick={() => {
+                alert("Downloading your brief PDF now.");
+              }}
+            >
+              Download PDF ⇩
+            </button>
+            <button className={styles.downloadButton}>Next Section ➡</button>
+          </div>
         </section>
       )}
 
@@ -240,7 +253,7 @@ function Panel() {
       </div>
       <div className={styles.nextButtonContainer}>
         <button
-          hidden={currentPanel === 4 ? "true" : ""}
+          hidden={currentPanel === 4 ? true : ""}
           className={styles.nextButton}
           onClick={() => {
             advanceProgressBar();

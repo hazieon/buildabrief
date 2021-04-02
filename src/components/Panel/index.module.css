@@ -14,8 +14,7 @@
 button {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  padding: 7px 15px;
-  border-radius: 25px;
+
   color: var(--white);
   background-color: var(--columba);
   transition: 0.3s ease-in;
@@ -29,20 +28,23 @@ button:hover {
 
 /* add media queries for responsive button placement*/
 .backButton {
+  padding: 7px 15px;
+  border-radius: 25px;
   position: absolute;
   /* left: 15%; */
-  left: 5rem;
-  top: 39rem;
+  left: 6rem;
+  top: 5rem;
 }
 .nextButton {
+  padding: 7px 15px;
+  border-radius: 25px;
   position: absolute;
-  right: 5rem;
-  top: 39rem;
+  right: 10rem;
+  top: 43rem;
 }
 
 .downloadButton {
-  margin: auto;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -50,13 +52,17 @@ button:hover {
 .downloadButton:active {
   cursor: wait;
 }
-
-/*relative position later on*/
+.buttonBox {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
 /* .backButtonContainer {
-  position: relative;
+  position: absolute;
 }
 .nextButtonContainer {
-  position: relative;
+  position: absolute;
 } */
 
 .progressPercentage {
