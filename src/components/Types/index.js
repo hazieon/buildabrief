@@ -11,6 +11,7 @@ function Types({ options, typeSetter }) {
           <div className={styles.box}>
             <input
               type="radio"
+              name="type"
               key={item}
               value={item}
               onChange={(event) => {

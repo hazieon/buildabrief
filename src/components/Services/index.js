@@ -11,6 +11,7 @@ function Services({ options, serviceSetter }) {
           <div className={styles.box}>
             <input
               type="radio"
+              name="service"
               key={item}
               value={item}
               onChange={(event) => {

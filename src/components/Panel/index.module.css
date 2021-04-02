@@ -40,6 +40,17 @@ button:hover {
   top: 39rem;
 }
 
+.downloadButton {
+  margin: auto;
+  margin-top: 3rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.downloadButton:active {
+  cursor: wait;
+}
+
 /*relative position later on*/
 /* .backButtonContainer {
   position: relative;
@@ -80,13 +91,27 @@ button:hover {
   font-size: calc(8px + 2vmin);
   margin: 0;
 }
+label {
+  font-size: calc(4px + 2vmin);
+  font-weight: bold;
+}
 
 .selectionText {
   margin: 0.5rem;
   color: var(--columba);
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .selectionBox {
-  margin-top: 4.5rem;
+  margin-top: 2.3rem;
+
+  line-height: 2rem;
+  text-align: center;
+}
+
+.briefBox {
+  margin-top: 2.3rem;
+  margin-left: 25%;
+  text-align: left;
 }

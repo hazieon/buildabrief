@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import Services from "../Services";
 import Types from "../Types";
 import Industry from "../Industry";
+import Budget from "../Budget";
 
 // best practice, clean code,
 // CSS - button positions
@@ -58,7 +59,7 @@ const industryOptions = [
 ];
 
 //array which holds the page numbers available to iterate through:
-const componentPages = [0, 1, 2, 3];
+const componentPages = [0, 1, 2, 3, 4];
 
 const initialState = {
   service: "",
@@ -105,7 +106,7 @@ function Panel() {
   console.log(state);
   function incComponent() {
     //array with order of pages, move to NEXT index on button click
-    if (currentPanel < componentPages.length) {
+    if (currentPanel < componentPages.length - 1) {
       setCurrentPanel(currentPanel + 1);
     } else {
       return currentPanel;
@@ -143,9 +144,9 @@ function Panel() {
   function industrySetter(e) {
     dispatch({ type: "setIndustry", industry: e.target.value });
   }
-  //   function budgetSetter(e) {
-  //     dispatch({ type: "setBudget", budget: e.target.value });
-  //   }
+  function budgetSetter(valueMin, valueMax) {
+    dispatch({ type: "setBudget", budget: `${valueMin} － ${valueMax}` });
+  }
 
   return (
     <div className={styles.container}>
@@ -196,6 +197,36 @@ function Panel() {
         </section>
       )}
 
+      {currentPanel === 3 && (
+        <section className={styles.budgetSection}>
+          <Budget budgetSetter={budgetSetter} />
+          <div className={styles.selectionBox}>
+            <h4 className={styles.selectionLabel}>Your budget estimate:</h4>
+            <h3 className={styles.selectionText}>
+              {state.budget ? state.budget : ""}
+            </h3>
+          </div>
+        </section>
+      )}
+
+      {currentPanel === 4 && (
+        <section className={styles.budgetSection}>
+          <h3>Brief complete!</h3>
+          <h5>Confirm your choices & save.</h5>
+          <div className={styles.BriefBox}>
+            <label for="selectionText">Service:</label>
+            <p className={styles.selectionText}>{state.service}</p>
+            <label for="selectionText">Service Type:</label>
+            <p className={styles.selectionText}>{state.type}</p>
+            <label for="selectionText">Industry:</label>
+            <p className={styles.selectionText}>{state.industry}</p>
+            <label for="selectionText">Budget:</label>
+            <p className={styles.selectionText}>{state.budget}</p>
+          </div>
+          <button className={styles.downloadButton}>Download PDF ⇩</button>
+        </section>
+      )}
+
       <div className={styles.backButtonContainer}>
         <button
           className={styles.backButton}
@@ -209,6 +240,7 @@ function Panel() {
       </div>
       <div className={styles.nextButtonContainer}>
         <button
+          hidden={currentPanel === 4 ? "true" : ""}
           className={styles.nextButton}
           onClick={() => {
             advanceProgressBar();
