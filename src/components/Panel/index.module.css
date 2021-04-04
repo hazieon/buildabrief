@@ -2,12 +2,13 @@
   box-shadow: 0px 4px 4px 2px rgba(53, 50, 50, 0.25);
   border-radius: 33px;
   font-size: 1.4rem;
-  /* padding: 0.1rem; */
   align-items: center;
   place-items: center;
   margin: auto;
+  margin-bottom: 1rem;
+  padding: 10px;
   width: 80vw;
-  min-height: 80vh;
+  min-height: 78vh;
   overflow: visible;
 }
 
@@ -32,19 +33,19 @@ button:hover {
   border-radius: 25px;
   position: absolute;
   /* left: 15%; */
-  left: 6rem;
-  top: 5rem;
+  /* left: 6rem;
+  top: 5rem; */
 }
 .nextButton {
   padding: 7px 15px;
   border-radius: 25px;
   position: absolute;
-  right: 10rem;
-  top: 43rem;
+  /* right: 10rem;
+  top: 38rem; */
 }
 
 .downloadButton {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -120,4 +121,47 @@ label {
   margin-top: 2.3rem;
   margin-left: 25%;
   text-align: left;
+}
+
+@media only screen and (max-width: 668px) {
+  .backButton {
+    left: 2rem;
+    top: 4rem;
+  }
+  .nextButton {
+    right: 4rem;
+    top: 38rem;
+  }
+}
+
+@media only screen and (min-width: 669px) {
+  .backButton {
+    left: 5rem;
+    top: 5rem;
+  }
+  .nextButton {
+    right: 6rem;
+    top: 39rem;
+  }
+}
+@media only screen and (min-width: 830px) {
+  .backButton {
+    left: 5rem;
+    top: 5rem;
+  }
+  .nextButton {
+    right: 7rem;
+    top: 40rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .backButton {
+    left: 7rem;
+    top: 5rem;
+  }
+  .nextButton {
+    right: 10rem;
+    top: 40rem;
+  }
 }

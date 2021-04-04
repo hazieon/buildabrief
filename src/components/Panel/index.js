@@ -104,7 +104,7 @@ function Panel() {
   // state to set and hold value of the current page
   const [currentPanel, setCurrentPanel] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [progress, setProgress] = useState(25);
+  const [progress, setProgress] = useState(0);
 
   console.log(state);
   function incComponent() {
@@ -133,7 +133,7 @@ function Panel() {
 
   function retractProgressBar() {
     // if not empty, SUBTRACT 1/4 progress, called on BACK button press
-    if (progress > 25) {
+    if (progress > 0) {
       setProgress(progress - 25);
     }
   }

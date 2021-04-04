@@ -19,9 +19,7 @@ function Types({ options, typeSetter }) {
                 typeSetter(event);
                 console.log(item);
               }}
-            >
-              {/* {item} */}
-            </input>
+            ></input>
             <label>{item}</label>
             <br />
           </div>
