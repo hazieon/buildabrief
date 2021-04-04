@@ -75,9 +75,11 @@ button:hover {
   font-size: calc(2px + 2vmin);
   opacity: 50%;
   user-select: none;
+  color: black;
 }
 .progressPercentage:hover {
   opacity: 100%;
+  color: black;
 }
 .progressBar {
   margin: auto;
