@@ -3,3 +3,8 @@
   margin-left: 30%;
   margin-bottom: 0.4rem;
 }
+
+.title {
+  font-size: calc(6px + 3vmin);
+  user-select: none;
+}

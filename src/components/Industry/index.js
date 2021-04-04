@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 function Industry({ options, industrySetter }) {
   return (
     <>
-      <h3 className={styles.title}>What industry does your company work in?</h3>
+      <h4 className={styles.title}>What industry does your company work in?</h4>
 
       <select
         onChange={(event) => {

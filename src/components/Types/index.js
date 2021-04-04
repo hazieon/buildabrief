@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 function Types({ options, typeSetter }) {
   return (
     <>
-      <h3 className={styles.title}>What type of service is required?</h3>
+      <h4 className={styles.title}>What type of service is required?</h4>
 
       {options.map((item, index) => {
         return (

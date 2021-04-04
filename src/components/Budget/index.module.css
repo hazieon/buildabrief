@@ -1,28 +1,3 @@
-/* .rangeContainer {
-  width: 500px;
-  display: inline-block;
-  position: relative;
-}
-.rangeWrapper {
-  position: absolute;
-  top: -50px;
-
-  margin: auto;
-  /* transform: translateX(-50%); 
-} */
-
-/* .range {
-  background: #fff;
-  white-space: nowrap;
-  border: 1px solid #d2d2d2;
-  border-radius: 2px;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  color: #555;
-  width: 150px;
-  z-index: 10;
-  position: relative;
-} */
 .range:after {
   content: "";
   position: absolute;
@@ -60,4 +35,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  font-size: calc(6px + 3vmin);
+  user-select: none;
 }

@@ -5,3 +5,8 @@ select {
   box-shadow: 0px 1px 1px 1px rgba(255, 174, 181, 0.678);
   background-color: rgba(255, 244, 244, 0.678);
 }
+
+.title {
+  font-size: calc(6px + 3vmin);
+  user-select: none;
+}

@@ -11,7 +11,7 @@ function Budget({ budgetSetter }) {
   };
   return (
     <>
-      <h3 className={styles.title}>What is your budget for this project?</h3>
+      <h4 className={styles.title}>What is your budget for this project?</h4>
 
       {/* <Typography id="range-slider" gutterBottom>
   Temperature range

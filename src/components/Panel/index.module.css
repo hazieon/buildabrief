@@ -11,6 +11,9 @@
   min-height: 78vh;
   overflow: visible;
 }
+.title {
+  font-size: calc(6px + 3vmin);
+}
 
 button {
   font-family: "Poppins", sans-serif;
@@ -71,7 +74,7 @@ button:hover {
   margin: 0px;
   font-size: calc(2px + 2vmin);
   opacity: 50%;
-  cursor: grab;
+  user-select: none;
 }
 .progressPercentage:hover {
   opacity: 100%;
@@ -81,9 +84,10 @@ button:hover {
   position: relative;
   border-radius: 3px;
   background-color: rgba(255, 174, 181, 0.678);
-  cursor: grab;
+  /* cursor: grab; */
   padding: 2px;
   max-width: 72vw;
+  user-select: none;
 }
 
 .progress {
@@ -92,6 +96,7 @@ button:hover {
   cursor: pointer;
   border-bottom: 10px solid var(--columba);
   max-width: 76vw;
+  user-select: none;
 }
 
 .selectionLabel {
@@ -101,6 +106,7 @@ button:hover {
 label {
   font-size: calc(4px + 2vmin);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .selectionText {
@@ -108,6 +114,7 @@ label {
   color: var(--columba);
   text-decoration: underline;
   font-weight: bold;
+  user-select: none;
 }
 
 .selectionBox {
@@ -130,7 +137,7 @@ label {
   }
   .nextButton {
     right: 4rem;
-    top: 38rem;
+    top: 39rem;
   }
 }
 
