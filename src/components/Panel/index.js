@@ -205,6 +205,14 @@ function Panel() {
         </section>
       )}
 
+      <button
+        className={styles.helpButton}
+        onClick={() => {
+          alert("Contact Columba team for assistance ✉ ☎");
+        }}
+      >
+        ?
+      </button>
       <div className={styles.backButtonContainer}>
         <button
           className={styles.backButton}
