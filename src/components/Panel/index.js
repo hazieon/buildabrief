@@ -4,66 +4,21 @@ import Services from "../Services";
 import Types from "../Types";
 import Industry from "../Industry";
 import Budget from "../Budget";
+import { serviceOptions } from "../../serviceOptions";
+import { types } from "../../serviceTypes";
+import { industryOptions } from "../../industryOptions";
 
+//QUESTIONS
 // best practice, clean code,
 // CSS - button positions
 // slider, text centred and spaced nicely
 // customise radio buttons, drop down
 // consider UX/UX improvements
 
-//hard coded list of available services within Columba
-const serviceOptions = [
-  "Web Design & Build",
-  "Pay Per Click (PPC)",
-  "Search Engine Optimisation (SEO)",
-  "Paid Social",
-  "Digital Marketing",
-];
-
-const types = [
-  "Brochure",
-  "Business (non-eCommerce)",
-  "eCommerce",
-  "Media / Magazine / Blog",
-  "Portfolio",
-  "Driving traffic to website",
-  "Increasing brand awareness",
-  "Increasing likes on social media",
-  "Other (Please Specify)",
-];
-
-const industryOptions = [
-  "Automotive",
-  "Aviation & Aerospace",
-  "Banking & Finance",
-  "Consumer Electronics",
-  "e-commerce",
-  "Education",
-  "Energy & Oil",
-  "Food & Beverage",
-  "Government & Administration",
-  "Hospitality & Events",
-  "Hospitals & Healthcare",
-  "Legal Services",
-  "Logistics & Supply Chain",
-  "Management & Consulting",
-  "Marketing & Advertising",
-  "Media",
-  "Music",
-  "Non-Profit",
-  "Pharmaceuticals & Biotech",
-  "Property",
-  "Retail",
-  "Sports",
-  "Technology",
-  "Transportation",
-  "Travel & Leisure",
-  "Other (Please Specify) ",
-];
-
-//array which holds the page numbers available to iterate through:
+//array which holds the page numbers available to iterate through for this section:
 const componentPages = [0, 1, 2, 3, 4];
 
+//object which preserves the initial state for the section
 const initialState = {
   service: "",
   type: "",
@@ -72,6 +27,7 @@ const initialState = {
 };
 
 //reducer function holding the cases for changing state in a controlled way
+//a set case for assigning value to each key in the state object
 function reducer(state, action) {
   switch (action.type) {
     case "setService":
@@ -101,12 +57,15 @@ function reducer(state, action) {
 }
 
 function Panel() {
-  // state to set and hold value of the current page
+  // state to set and hold value of the current page:
   const [currentPanel, setCurrentPanel] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // state to set and hold the progress bar value:
   const [progress, setProgress] = useState(0);
+  //the main state of the section - holds the users responses and dispatch is called to update state
+  //useReducer hook used as it is controlled and useful for complex logic:
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(state);
+  //functions to move to the NEXT and PREVIOUS pages, using the currentPanel state:
   function incComponent() {
     //array with order of pages, move to NEXT index on button click
     if (currentPanel < componentPages.length - 1) {
@@ -124,6 +83,7 @@ function Panel() {
     }
   }
 
+  // functions to ADD and SUBTRACT progress based on user's progression through pages
   function advanceProgressBar() {
     // if not complete, ADD 1/4 progress, called on NEXT button press
     if (progress < 100) {
@@ -138,6 +98,7 @@ function Panel() {
     }
   }
 
+  // functions to set each field, passed down to respective components
   function serviceSetter(e) {
     dispatch({ type: "setService", service: e.target.value });
   }
@@ -160,6 +121,8 @@ function Panel() {
           style={{ width: progress + "%" }}
         ></div>
       </div>
+
+      {/*render each page based on page-tracking state currentPanel*/}
       {currentPanel === 0 && (
         <>
           <section className={styles.servicesSection}>
@@ -212,6 +175,8 @@ function Panel() {
         </section>
       )}
 
+      {/*final page after user submits their responses. 
+          This would also be its own component in a real application*/}
       {currentPanel === 4 && (
         <section className={styles.budgetSection}>
           <h3>'About You' complete!</h3>

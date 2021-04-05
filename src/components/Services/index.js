@@ -19,9 +19,7 @@ function Services({ options, serviceSetter }) {
                 serviceSetter(event);
                 console.log(item);
               }}
-            >
-              {/* {item} */}
-            </input>
+            ></input>
             <label>{item}</label>
             <br />
           </div>
@@ -31,22 +29,3 @@ function Services({ options, serviceSetter }) {
   );
 }
 export default Services;
-
-/* <select
-        onChange={(event) => {
-          console.log(event.target.value);
-          event.persist();
-          serviceSetter(event);
-        }}
-      >
-        <option value="" selected disabled>
-          Select one that applies:
-        </option>
-        {options.map((item) => {
-          return (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          );
-        })}
-      </select> */

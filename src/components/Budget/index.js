@@ -13,9 +13,6 @@ function Budget({ budgetSetter }) {
     <>
       <h4 className={styles.title}>What is your budget for this project?</h4>
 
-      {/* <Typography id="range-slider" gutterBottom>
-  Temperature range
-</Typography> */}
       <Slider
         initalvalue={10000}
         min={10000}
@@ -36,18 +33,3 @@ function Budget({ budgetSetter }) {
   );
 }
 export default Budget;
-
-/* <div className={styles.rangeWrapper}>
-          <input
-            className={styles.range}
-            type="range"
-            min="1"
-            max="100"
-            value="20"
-            onChange={(event) => {
-              event.persist();
-              budgetSetter(event);
-              console.log(event.target.value);
-            }}
-          />
-        </div> */
