@@ -8,13 +8,6 @@ import { serviceOptions } from "../../serviceOptions";
 import { types } from "../../serviceTypes";
 import { industryOptions } from "../../industryOptions";
 
-//QUESTIONS
-// best practice, clean code,
-// CSS - button positions
-// slider, text centred and spaced nicely
-// customise radio buttons, drop down
-// consider UX/UX improvements
-
 //array which holds the page numbers available to iterate through for this section:
 const componentPages = [0, 1, 2, 3, 4];
 
@@ -26,8 +19,8 @@ const initialState = {
   budget: 0,
 };
 
-//reducer function holding the cases for changing state in a controlled way
-//a set case for assigning value to each key in the state object
+// reducer function holding the cases for changing state in a controlled way
+// a set case for assigning value to each key in the state object:
 function reducer(state, action) {
   switch (action.type) {
     case "setService":
@@ -57,17 +50,16 @@ function reducer(state, action) {
 }
 
 function Panel() {
-  // state to set and hold value of the current page:
+  // state to set and hold value of the current page and user's progress: useState hook:
   const [currentPanel, setCurrentPanel] = useState(0);
-  // state to set and hold the progress bar value:
   const [progress, setProgress] = useState(0);
-  //the main state of the section - holds the users responses and dispatch is called to update state
-  //useReducer hook used as it is controlled and useful for complex logic:
+  // the main state of the section - holds the users responses and dispatch is called to update state
+  // useReducer hook used as it is controlled and useful for complex logic:
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  //functions to move to the NEXT and PREVIOUS pages, using the currentPanel state:
+  // functions to move to the NEXT and PREVIOUS pages, using the currentPanel state:
   function incComponent() {
-    //array with order of pages, move to NEXT index on button click
+    // array with order of pages, move to NEXT index on button click
     if (currentPanel < componentPages.length - 1) {
       setCurrentPanel(currentPanel + 1);
     } else {

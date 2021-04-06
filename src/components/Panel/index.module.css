@@ -18,10 +18,10 @@
 button {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-
   color: var(--white);
-  background-color: var(--columba);
+  background-color: var(--columbaLight);
   transition: 0.3s ease-in;
+  min-width: 40px;
 }
 
 button:hover {
@@ -56,6 +56,7 @@ button:hover {
   flex-direction: column;
   max-width: fit-content;
 }
+
 /* .backButtonContainer {
   position: absolute;
 }
@@ -67,13 +68,11 @@ button:hover {
   position: relative;
   margin: 0px;
   font-size: calc(2px + 2vmin);
-  opacity: 50%;
   user-select: none;
   color: black;
   z-index: 4;
 }
 .progressPercentage:hover {
-  opacity: 100%;
   color: black;
 }
 .progressBar {
@@ -91,7 +90,7 @@ button:hover {
   user-select: none;
   border-radius: 2px;
   cursor: pointer;
-  border-bottom: 10px solid var(--columba);
+  border-bottom: 10px solid var(--columbaLight);
   max-width: 76vw;
   user-select: none;
 }
@@ -109,9 +108,10 @@ label {
 .selectionText {
   margin: 0.5rem;
   color: var(--columba);
-  text-decoration: underline;
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: bolder;
   user-select: none;
+  cursor: pointer;
 }
 
 .selectionBox {
@@ -135,6 +135,7 @@ label {
   top: 4rem;
   font-weight: bolder;
   font-size: large;
+  min-width: 40px;
 }
 
 @media only screen and (max-width: 668px) {

@@ -9,18 +9,20 @@ function Services({ options, serviceSetter }) {
       {options.map((item, index) => {
         return (
           <div className={styles.box} key={item}>
-            <input
-              type="radio"
-              name="service"
-              key={item}
-              value={item}
-              onChange={(event) => {
-                event.persist();
-                serviceSetter(event);
-                console.log(item);
-              }}
-            ></input>
-            <label>{item}</label>
+            <label>
+              <input
+                type="radio"
+                name="service"
+                key={item}
+                value={item}
+                onChange={(event) => {
+                  event.persist();
+                  serviceSetter(event);
+                  console.log(item);
+                }}
+              ></input>
+              {item}
+            </label>
             <br />
           </div>
         );
